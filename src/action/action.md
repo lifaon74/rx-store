@@ -28,6 +28,8 @@ interface IUpdateStateFunction<GState, GArguments extends any[]> {
 - a callback, which receives as first argument the current State of the Store (`state`),
    and an optional list of Arguments used to provide a context / some data to the Action.
   
+And returns the new State or the Store.
+
 ##### Example
 
 ```ts
