@@ -39,7 +39,7 @@ type IUser = Immutable<{
     name: string;
   }>
 
-  type IAppState = Immutable<{
+type IAppState = Immutable<{
   users: ImmutableArray<IUser>;
 }>;
 
