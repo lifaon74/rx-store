@@ -1,6 +1,6 @@
 {
   "name": "@lifaon/rx-store",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Description",
   "repository": {
     "type": "git",
@@ -11,6 +11,6 @@
   "license": "MIT",
   "access": "public",
   "dependencies": {
-    "@lifaon/rx-js-light": "1.1.2"
+    "@lifaon/rx-js-light": "2.0.0"
   }
 }

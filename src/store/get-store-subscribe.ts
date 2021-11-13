@@ -1,8 +1,8 @@
 import { IStore } from './store.type';
-import { ISubscribeFunction } from '@lifaon/rx-js-light';
+import { IObservable } from '@lifaon/rx-js-light';
 
 export function getStoreSubscribe<GState>(
   store: IStore<GState>,
-): ISubscribeFunction<GState> {
+): IObservable<GState> {
   return store.subscribe;
 }
