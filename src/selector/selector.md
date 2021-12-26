@@ -41,10 +41,10 @@ A Selector is not directly related to a Store. For this, we'll have to *map* our
 function mapState<GState, GValue>(
     store: IStore<GState>,
     selector: ISelector<GState, GValue>,
-): ISubscribeFunction<GValue>;
+): IObservable<GValue>;
 ```
 
-[Here is the definition of ISubscribeFunction](https://github.com/lifaon74/rx-js-light/blob/main/src/types/subscribe-function/subscribe-function.md)
+[Here is the definition of an Observable](https://github.com/lifaon74/rx-js-light/blob/main/src/observable/type/observable.md)
 
 
 ##### Example

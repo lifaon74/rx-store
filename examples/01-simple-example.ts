@@ -1,6 +1,15 @@
-## Example
 
-```ts
+import {
+  createAction,
+  createSelector, createStore,
+  Immutable,
+  ImmutableArray,
+  immutableArrayPush,
+  immutableArrayRemove,
+  immutableArrayReplace,
+  mapState, selectState,
+} from '../src';
+
 /* DEFINE STORE INTERFACES */
 
 type IUser = Immutable<{
@@ -19,7 +28,7 @@ const APP_STORE = createStore<IAppState>({
 
 /* ACTIONS */
 
-const appendUser = createAction(APP_STORE, (state: IAppState, user: IUser): IAppState => {
+const appendUserAction = createAction(APP_STORE, (state: IAppState, user: IUser): IAppState => {
   return {
     ...state,
     users: immutableArrayPush(state.users, user),
@@ -28,7 +37,7 @@ const appendUser = createAction(APP_STORE, (state: IAppState, user: IUser): IApp
   };
 });
 
-const removeUserByName = createAction(APP_STORE, (state: IAppState, name: string): IAppState => {
+const removeUserByNameAction = createAction(APP_STORE, (state: IAppState, name: string): IAppState => {
   const users: ImmutableArray<IUser> = state.users;
   const index: number = users.findIndex((user: IUser) => (user.name === name));
   if (index === -1) {
@@ -46,7 +55,7 @@ const removeUserByName = createAction(APP_STORE, (state: IAppState, name: string
   }
 });
 
-export const renameUser = createAction(APP_STORE, (state: IAppState, user: IUser, name: string): IAppState => {
+export const renameUserAction = createAction(APP_STORE, (state: IAppState, user: IUser, name: string): IAppState => {
   const users: ImmutableArray<IUser> = state.users;
   const index: number = users.indexOf(user);
   if (index === -1) {
@@ -99,13 +108,11 @@ function storeExample1() {
 
   /* EXECUTE ACTIONS */
 
-  appendUser({ name: 'Alice' });
-  appendUser({ name: 'Bob' });
-  removeUserByName('Bob');
-  renameUser(selectState(APP_STORE, firstUserSelector), 'David');
+  appendUserAction({ name: 'Alice' });
+  appendUserAction({ name: 'Bob' });
+  removeUserByNameAction('Alice');
+  renameUserAction(selectState(APP_STORE, firstUserSelector), 'David');
 }
 
-storeExample1();
-```
 
-[Play by yourself with this example](https://stackblitz.com/edit/typescript-bqszwe?devtoolsheight=33&file=index.ts)
+storeExample1();
